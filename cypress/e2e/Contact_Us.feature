@@ -1,11 +1,11 @@
 Feature: webdriveruniversity - contact us page
 
   Scenario: Valid Contact us submission
-    Given Navigate to the webdriveruniversity homepage
+    Given Navigate to the webdriver university homepage
     When click on contact us button
 
   ## is important describe that in the actual script we use
-  ## WHEN, but here is need still "AND"for formal compreension 
+  ## WHEN, but here is need still "AND" for formal compreension 
 
     And type a first name
     And type a last name

@@ -1,10 +1,10 @@
-/// <refrence types="cypress" />
-const { Given,When } = require("@badeball/cypress-cucumber-preprocessor");
+/// <reference types="cypress" />
+ const { Given,When } = require("@badeball/cypress-cucumber-preprocessor");
 
 
 const url = "https://www.webdriveruniversity.com"
 
-Given(`Navigate to the webdriveruniversity homepage`, () => {
+Given(`Navigate to the webdriver university homepage`, () => {
     cy.visit(url);
 }) 
 
