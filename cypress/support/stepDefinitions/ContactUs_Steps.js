@@ -5,7 +5,7 @@ import { Then, When } from "@badeball/cypress-cucumber-preprocessor"
 const url = "https://www.webdriveruniversity.com"
 
 
-// #### Happy Path
+// #### Happy Paths ####
 
 When(`type a first name`, () => {
   cy.get('input[name="first_name"]').type("Larinha")
@@ -33,6 +33,28 @@ Then(`should present a loading page showing a message that the form was send suc
   cy.get('h1').should('have.text','Thank You for your Message!') 
   //used for dynamic texts, is likely useful
 })
+
+  // testing happy path with a specific scripts
+When(`type a first name like {string}`, (firstName) => {
+  cy.get('input[name="first_name"]').type(firstName)
+})
+
+When(`type a last name like {string}`, (lastName) => {
+cy.get('input[name="last_name"]').type(lastName)
+
+})
+When(`type a valid email address like {string}`, (email) => {
+  cy.get('input[name="email"]').type(email)
+
+})
+
+When(`type a comment like {string} and type a number {int}`, (word,number) => {
+    cy.get('textarea[name="message"]').type(`${word} ${number}`)
+
+})
+
+
+
 
 // #### Negative scenarios #####
 
