@@ -23,7 +23,6 @@ Feature: webdriveruniversity - contact us page
     And type a comment like "inhai bicha" and type a number 7
     And click in the submit button
 
-
   @negative
   Scenario: Invalid Contact us submission
     Given Navigate to the webdriver university homepage
@@ -65,6 +64,40 @@ Feature: webdriveruniversity - contact us page
     Then should present a page with a message that all fields are required
 
 
+  ## More adequate scenarios validation
+
+  Scenario Outline: Validate Contact us page
+    Given Navigate to the webdriver university homepage
+    When click on contact us button
+    And type a first name '<firstName>' and a last name '<lastName>'
+    And type a email '<email>' and a comment '<comment>'
+    And click in the submit button
+    Then should present a page with a message '<message>'
+
+    Examples:
+
+      | firstName | lastName    | email             | comment      | message                      |
+      | Lara      | Cardoso     | lara@teste.com    | a comment    | Thank You for your Message!  |
+      | Patrícia  | Cardoso     | mum@teste.com     | my moms name | Thank You for your Message!  |
+      | errado    | tudo errado | errado @teste.com | is wrong     | Error: Invalid email address |
 
 
+### Using background
 
+
+  Background:
+    Given Navigate to the webdriver university homepage
+    When click on contact us button
+  Scenario Outline: Validate Contact us page but with a background
+
+    And type a first name '<firstName>' and a last name '<lastName>'
+    And type a email '<email>' and a comment '<comment>'
+    And click in the submit button
+    Then should present a page with a message '<message>'
+
+    Examples:
+
+      | firstName | lastName    | email             | comment      | message                      |
+      | Lara      | Cardoso     | lara@teste.com    | a comment    | Thank You for your Message!  |
+      | Patrícia  | Cardoso     | mum@teste.com     | my moms name | Thank You for your Message!  |
+      | errado    | tudo errado | errado @teste.com | is wrong     | Error: Invalid email address |

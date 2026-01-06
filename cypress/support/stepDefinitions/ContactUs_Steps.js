@@ -71,3 +71,25 @@ Then(`should present a page with a message that all fields are required`, () => 
 Then(`click in the reset button`, () => {
 cy.get('[type="reset"]').click()
 })
+
+
+// #### For outline scenarios
+
+
+When('type a first name {word} and a last name {string}', (firstName, lastName) => {
+cy.get('input[name="first_name"]').type(firstName)
+cy.get('input[name="last_name"]').type(lastName)
+
+})
+
+
+When('type a email {string} and a comment {string}', (email, message) => {
+cy.get('input[name="email"]').type(email)
+cy.get('textarea[name="message"]').type(message)
+
+})
+
+Then('should present a page with a message {string}', (text) =>{
+ cy.xpath("//h1 | //body").contains(text)
+
+})
